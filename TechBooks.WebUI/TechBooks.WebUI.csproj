@@ -120,7 +120,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommonBaseClass.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageAuthorBooksController.cs" />
+    <Compile Include="Controllers\ManageAuthorsController.cs" />
+    <Compile Include="Controllers\ManageBookAuthorsController.cs" />
+    <Compile Include="Controllers\ManageBooksController.cs" />
+    <Compile Include="Controllers\ManageCategoriesController.cs" />
+    <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +150,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\js\Site.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -181,6 +190,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ManageAuthorBooks\" />
+    <Folder Include="Views\ManageAuthors\" />
+    <Folder Include="Views\ManageBookAuthors\" />
+    <Folder Include="Views\ManageBooks\" />
+    <Folder Include="Views\ManageCategories\" />
+    <Folder Include="Views\NotFound\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -208,6 +223,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechBooks.Data\TechBooks.Data.csproj">
+      <Project>{c9885429-246e-4717-903c-080b7c704dcc}</Project>
+      <Name>TechBooks.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechBooks.Models\TechBooks.Models.csproj">
+      <Project>{89c0f1f5-59e9-4d00-a930-53821d1b5c2e}</Project>
+      <Name>TechBooks.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

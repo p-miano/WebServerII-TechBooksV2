@@ -18,3 +18,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+form {
+    display: inline;
+}
+
+label, .vspace {
+    margin-top: 10px;
+}
