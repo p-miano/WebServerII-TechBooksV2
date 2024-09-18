@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CommonBaseClass.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageAuthorBooksController.cs" />
     <Compile Include="Controllers\ManageAuthorsController.cs" />
     <Compile Include="Controllers\ManageBookAuthorsController.cs" />
@@ -131,6 +132,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthorBooksViewModel.cs" />
+    <Compile Include="Models\BookAuthorsViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,16 +190,22 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ManageCategories\Index.cshtml" />
+    <Content Include="Views\ManageCategories\AddOrUpdate.cshtml" />
+    <Content Include="Views\NotFound\Index.cshtml" />
+    <Content Include="Views\ManageBooks\AddOrUpdate.cshtml" />
+    <Content Include="Views\ManageBooks\Index.cshtml" />
+    <Content Include="Views\ManageAuthors\Index.cshtml" />
+    <Content Include="Views\ManageAuthors\AddOrUpdate.cshtml" />
+    <Content Include="Views\ManageAuthorBooks\Index.cshtml" />
+    <Content Include="Views\ManageBookAuthors\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\SignIn.cshtml" />
+    <Content Include="Views\Login\Success.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\ManageAuthorBooks\" />
-    <Folder Include="Views\ManageAuthors\" />
-    <Folder Include="Views\ManageBookAuthors\" />
-    <Folder Include="Views\ManageBooks\" />
-    <Folder Include="Views\ManageCategories\" />
-    <Folder Include="Views\NotFound\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

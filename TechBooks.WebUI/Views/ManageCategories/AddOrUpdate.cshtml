@@ -1,0 +1,38 @@
+﻿@model TechBooks.Models.Category
+
+@{
+    if (string.IsNullOrEmpty((string)ViewContext.RouteData.Values["id"]))
+    {
+        ViewBag.Title = "Add Category";
+    }
+    else
+    {
+        ViewBag.Title = "Update Category";
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+
+            <a href="/ManageCategories/" class="btn btn-outline-secondary vspace">Back</a>
+
+            @if (Model == null || Model.CategoryId == 0)
+            {
+                <input type="submit" value="Add" class="btn btn-primary vspace" />
+            }
+            else
+            {
+                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+                <input type="submit" value="Update" class="btn btn-primary vspace" />
+            }
+        </div>
+    </div>
+}
+

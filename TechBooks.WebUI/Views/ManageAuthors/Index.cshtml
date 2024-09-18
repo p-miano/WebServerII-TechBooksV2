@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TechBooks.Models.Author>
+
+@{
+    ViewBag.Title = "Manage Authors";
+}
+
+<p>
+    @Html.ActionLink("Click here to Add", "AddOrUpdate", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.AuthorId)*@
+                @item.AuthorId
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Name)*@
+                @item.Name
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Email)*@
+                @item.Email
+            </td>
+            <td>
+                @Html.ActionLink("Update", "AddOrUpdate", new { id = item.AuthorId }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Manage Author Books", "Index", "ManageAuthorBooks", new { id = item.AuthorId }, new { @class = "btn btn-outline-primary" })
+
+                @using (Html.BeginForm("Remove", "ManageAuthors"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("AuthorId", item.AuthorId)
+                    <input type="submit" value="Remove" class="btn btn-danger" onclick="return removeConfirmation();" />
+                }
+            </td>
+        </tr>
+    }
+</table>

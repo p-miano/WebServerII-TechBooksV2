@@ -1,0 +1,21 @@
+﻿
+@{
+    var backUrl = Request.QueryString["backUrl"];
+    var entity = Request.QueryString["entity"];
+    var title = !string.IsNullOrEmpty(entity) ? entity + " not found!" : "Page Not Found";
+    ViewBag.Title = title;
+}
+
+<button id="btnBack" class="btn btn-outline-secondary vspace">Back</button>
+
+@section Scripts {
+    <script>
+        document.getElementById("btnBack").addEventListener("click", function() {
+            let backUrl = "@backUrl";
+            if (backUrl)
+                window.location.href = backUrl;
+            else
+                window.location.href = "/";
+        });
+    </script>
+}

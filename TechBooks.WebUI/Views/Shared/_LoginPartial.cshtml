@@ -1,0 +1,23 @@
+﻿<ul class="navbar-nav">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            @using (Html.BeginForm("SignOut", "Login"))
+            {
+                @Html.AntiForgeryToken()
+                <button id="logout" type="submit" class="nav-link btn btn-link">Sign out</button>
+            }
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Register", "Login")">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("SignIn", "Login")">Sign in</a>
+        </li>
+    }
+</ul>
+
+

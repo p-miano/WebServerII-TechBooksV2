@@ -1,0 +1,41 @@
+﻿@model TechBooks.Models.Author
+
+@{
+    if (string.IsNullOrEmpty((string)ViewContext.RouteData.Values["id"]))
+    {
+        ViewBag.Title = "Add Author";
+    }
+    else
+    {
+        ViewBag.Title = "Update Author";
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+
+            <a href="/ManageAuthors/" class="btn btn-outline-secondary vspace">Back</a>
+
+            @if (Model == null || Model.AuthorId == 0)
+            {
+                <input type="submit" value="Add" class="btn btn-primary vspace" />
+            }
+            else
+            {
+                <input type="hidden" name="AuthorId" value="@Model.AuthorId" />
+                <input type="submit" value="Update" class="btn btn-primary vspace" />
+            }
+        </div>
+    </div>
+}

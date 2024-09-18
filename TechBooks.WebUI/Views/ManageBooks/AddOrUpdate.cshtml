@@ -1,0 +1,41 @@
+﻿@model TechBooks.Models.Book
+
+@{
+    if (string.IsNullOrEmpty((string)ViewContext.RouteData.Values["id"]))
+    {
+        ViewBag.Title = "Add Book";
+    }
+    else
+    {
+        ViewBag.Title = "Update Book";
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.LabelFor(model => model.CategoryId, "Category", htmlAttributes: new { @class = "control-label" })
+            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.Categories, "(Select a Category)", new { @class = "form-control" })
+
+            <a href="/ManageBooks/" class="btn btn-outline-secondary vspace">Back</a>
+
+            @if (Model == null || Model.BookId == 0)
+            {
+                <input type="submit" value="Add" class="btn btn-primary vspace" />
+            }
+            else
+            {
+                <input type="hidden" name="BookId" value="@Model.BookId" />
+                <input type="submit" value="Update" class="btn btn-primary vspace" />
+            }
+        </div>
+    </div>
+}
